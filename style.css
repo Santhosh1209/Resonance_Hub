@@ -105,7 +105,7 @@ nav ul li{ /* spacing between each navbar element */
     height: 50px;
     display: flex;
     background-color: white;
-    width: 40%;
+    width: 50% !important;
     color: black;
     margin: 8px 0px;
     justify-content: space-between;
