@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+body{
+    background-color: antiquewhite;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+} /* using universal command to initialize the margin and padding */
+
+nav{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+nav ul{
+    display: flex; /* to make the navbar appear horizontally*/
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+    background-color: black;
+    color: white;
+}
+
+nav ul li{ /* spacing between each navbar element */
+    padding: 0 12px;
+}
+
+.brand img{
+    width: 44px;
+    padding: 0 8px;
+}
+
+.brand { /* applies to entire stuff inside brand class aka the navbar elements */
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem; /* 1.3 rimes the size of root/html element */
+}
+.container{
+    min-height: 72vh;
+    background-color: black;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    margin: 23px auto;
+    width: 70%; /* 70% width of the parent which is the HTML file */
+    border-radius: 12px;
+    padding: 34px;
+    background-image: url("anime_dark.jpg");
+    background-size: cover;
+    flex-direction: column;
+}
+
+.icons{
+    margin-top: 14px; 
+}
+
+.icons i{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#previous { 
+    /* making sure that the play button is in the centre */
+    margin-left: 300px; 
+}
+
+#next {
+    margin-right: 300px; /* extra spacing bw next and replay button alone! */
+}
+
+#reply {
+    color: white; /* Seting the default color */
+    transition: color 0.4s ease-in-out; /* Add transition effect for color change */
+}
+
+#reply:hover {
+    color: cyan; /* Change color on hover */
+}
+
+.bottom{
+    position: sticky; /* relative positioning */
+    bottom: 0;
+    height: 130px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center; /* horizontal elements are centered */
+    align-items: center; /* vertical elements are centered */
+    flex-direction: column; /* elements of flex are put on top of each other */
+}
+
+#myProgressbar{
+    width: 80vw; 
+    cursor: pointer;
+}
+
+.songItemContainer{
+    margin-top: 30px;
+}
+
+.songItem{
+    height: 50px;
+    display: flex;
+    background-color: white;
+    width: 40%;
+    color: black;
+    margin: 8px 0px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 34px;
+}
+
+.songItem img {
+    width: 40px; 
+    height: 40px; 
+    margin-right: 10px; 
+    margin-left: 10px;
+    border-radius: 50%;
+}
+.songlistplay {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.songlistplay i {
+    margin-left: 5px; 
+}
+
+.timestamp{
+    margin: 0 23px;
+}
+
+.timestamp i{
+    cursor: pointer;
+}
+
+.songInfo{
+    /* to make things move towards the left */
+    position: absolute; 
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#masterSongName{
+    margin-top: 15px;
+}
+
+.songInfo img{
+    /* instead of using a static gif, a transition has been given here */
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+/* making the website responsive */
+
+@media only screen and (max-width: 600px) {
+    /* for mobile phones */
+    body {
+        font-size: 14px; /* for better readability in mobiles small */
+    }
+
+    nav ul {
+        flex-direction: column; /* the items are all stacked vertically for better navigation in your mobile */
+        align-items: flex-start; /* aligning the items to the left */
+        height: auto; /* adjusting height to accommodate varying content */
+    }
+
+    .brand {
+        font-size: 1.2rem; /* decreasing brand's font size */
+    }
+
+    .container {
+        width: 90%; /* increasing width for better readability */
+        padding: 15px; /* adjusting the padding for better spacing */
+    }
+
+    .songItem {
+        width: 80%; /* Increase width for better spacing */
+    }
+
+    #previous, #next, #reply {
+        margin: 5px; /* adjusting the margins for better spacing */
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    /* for tablets */
+    body {
+        font-size: 16px; /* Adjust font size for tablets */
+    }
+
+    .container {
+        width: 70%; /* Adjust width for better spacing on tablets */
+        padding: 20px; /* Adjust padding for better spacing */
+    }
+
+    .songItem {
+        width: 60%; /* Adjust width for better spacing */
+    }
+
+    #previous, #next, #reply {
+        margin: 10px; /* Adjust margins for better spacing */
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* for normal sized desktops */
+    .container {
+        width: 80%; /* adjusting the width for better spacing */
+    }
+
+    .songItem {
+        width: 50%; /* adjusting the width for better spacing */
+    }
+
+    #previous, #next, #reply {
+        margin: 10px; /* adjusting the margins for better spacing */
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    /* for desktops that are pretty big */
+    .container {
+        width: 60%; /* adjusting the width for better spacing */
+    }
+
+    .songItem {
+        width: 40%; /* adjusting the width for better spacing */
+    }
+
+    #previous, #next, #reply {
+        margin: 15px; /* adjusting the margins for better spacing */
+    }
+}
