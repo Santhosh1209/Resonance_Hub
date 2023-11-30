@@ -66,15 +66,16 @@ audioElement.addEventListener('timeupdate', () => {
     progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
     myProgressBar.value = progress;
 
-    // Update total time completed and total time
+    // updating total time completed and total time
     document.getElementById('totalTimeCompleted').innerText = formatTime(audioElement.currentTime);
     document.getElementById('totalTime').innerText = formatTime(audioElement.duration);
-});
 
-audioElement.addEventListener('ended', () => {
-    // Automatically move to the next song when the current song ends
-    if (!isLooping) {
-        document.getElementById('next').click(); // Simulate a click on the next button
+    // moving to the next song made easy
+    if (!isLooping && audioElement.currentTime >= audioElement.duration - 1) {
+        // Move to the next song 
+        songIndex = (songIndex + 1) % songs.length;
+        console.log('Timeupdate event - songIndex:', songIndex);
+        updateIndividualPlayButton();
     }
 });
 
@@ -87,7 +88,7 @@ function formatTime(time) {
 }
 
 myProgressBar.addEventListener('change', () => {
-    // whenever the progressbar's value change, there is a subsequent change in the audio as well !!
+    // whenever the progressbar's value change, there is a subsequent change in the audio as well
     audioElement.currentTime = (myProgressBar.value * audioElement.duration / 100); // /100 is done to get the exact time value instead of the percentage
 });
 
@@ -150,29 +151,22 @@ document.getElementById('next').addEventListener('click', () => {
     updateIndividualPlayButton();
 });
 
-audioElement.addEventListener('ended', () => {
-    // Automatically move to the next song when the current song ends
-    if (!isLooping) {
-        document.getElementById('next').click(); // Simulate a click on the next button
-    }
-});
-
 document.getElementById('reply').addEventListener('click', () => {
     // Toggle looping behavior
     isLooping = !isLooping;
 
     if (isLooping) {
-        // Enable looping for the current song
+        // enables looping for the current song
         audioElement.loop = true;
         audioElement.play();
         masterPlay.classList.remove('fa-circle-play');
         masterPlay.classList.add('fa-circle-pause');
-        // Change replay button color
+        // change replay button's color
         document.getElementById('reply').style.color = 'cyan';
     } else {
-        // Disable looping for the current song
+        // disables looping for the current song
         audioElement.loop = false;
-        // Change replay button color
+        // changes replay button's color back to white
         document.getElementById('reply').style.color = 'white';
     }
 });
