@@ -18,7 +18,7 @@ let songs = [
     { songName: "Sandhanam Theme", filepath: "6.mp3", coverpath: "vj.png" },
     { songName: "Rolex Theme", filepath: "7.mp3", coverpath: "rolex.png" },
     { songName: "Lokiverse", filepath: "8.mp3", coverpath: "lcu.jpg" },
-    { songName: "Glimpse of Harold Das", filepath: "9.mp3", coverpath: "Glimpse-of-Harold-Das.png" },
+    { songName: "Harold Das Theme", filepath: "9.mp3", coverpath: "Glimpse-of-Harold-Das.png" },
     { songName: "Lokiverse 2.0", filepath: "10.mp3", coverpath: "lcuverse.png" },
 ];
 
